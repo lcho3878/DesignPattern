@@ -10,13 +10,36 @@ import UIKit
 class MainViewController: UIViewController {
 
     private let mainView = MainView()
+    private let mainViewModel: MainViewModel = MainViewModel()
     
     override func loadView() {
-        view = mainView    }
+        view = mainView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        bind()
+        mainView.nextButton.addTarget(self, action: #selector(clickNextButton), for: .touchUpInside)
+        mainView.previousButton.addTarget(self, action: #selector(clickPreviousButton), for: .touchUpInside)
+    }
+    
+    private func bind() {
+        mainViewModel.nameText.bind { name in
+            self.mainView.nameLabel.text = name
+        }
+        
+        mainViewModel.ageText.bind { age in
+            self.mainView.ageLabel.text = String(age ?? 0)
+        }
+    }
+    
+    @objc func clickNextButton (_ sender: UIButton) {
+        mainViewModel.clickNextButton()
+    }
+    
+    @objc func clickPreviousButton (_ sender: UIButton) {
+        mainViewModel.clickPriviousButton()
     }
 
 

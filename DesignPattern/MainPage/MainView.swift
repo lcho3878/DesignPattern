@@ -11,9 +11,22 @@ import SnapKit
 
 class MainView: UIView {
     
-    private let mainLabel = UILabel().then {
-        $0.text = "Main Label"
+    let nameLabel = UILabel().then {
+        $0.text = "Name Label"
         $0.textColor = .blue
+    }
+    let ageLabel = UILabel().then {
+        $0.text = "Age Label"
+        $0.textColor = .blue
+    }
+    
+    let nextButton = UIButton().then {
+        $0.setTitle("Next", for: .normal)
+        $0.backgroundColor = .systemPink
+    }
+    let previousButton = UIButton().then {
+        $0.setTitle("previous", for: .normal)
+        $0.backgroundColor = .systemPink
     }
 
     override init(frame: CGRect) {
@@ -28,12 +41,30 @@ class MainView: UIView {
     
     private func setupUI() {
         backgroundColor = .systemBackground
-        addSubview(mainLabel)
+        addSubview(nameLabel)
+        addSubview(ageLabel)
+        addSubview(previousButton)
+        addSubview(nextButton)
     }
     
     private func setupConstraint() {
-        mainLabel.snp.makeConstraints {
-            $0.center.equalToSuperview()
+        nameLabel.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(safeAreaLayoutGuide).offset(50)
+        }
+        
+        ageLabel.snp.makeConstraints {
+            $0.centerX.equalTo(nameLabel)
+            $0.top.equalTo(nameLabel.snp.bottom).offset(10)
+        }
+        
+        previousButton.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(ageLabel.snp.bottom).offset(50)
+        }
+        nextButton.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(previousButton.snp.bottom).offset(20)
         }
     }
 
