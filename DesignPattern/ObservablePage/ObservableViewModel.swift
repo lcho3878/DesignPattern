@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class MainViewModel {
+final class ObservableViewModel {
     let nameText: Observable<String?> = Observable(nil)
     let ageText: Observable<Int?> = Observable(nil)
     

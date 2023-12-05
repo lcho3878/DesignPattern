@@ -6,29 +6,26 @@
 //
 
 import UIKit
-import Then
 import SnapKit
+import Then
 
 class MainView: UIView {
     
-    let nameLabel = UILabel().then {
-        $0.text = "Name Label"
-        $0.textColor = .blue
-    }
-    let ageLabel = UILabel().then {
-        $0.text = "Age Label"
-        $0.textColor = .blue
+    let observableButton = UIButton().then {
+        $0.setTitle("Observable", for: .normal)
+        $0.backgroundColor = .systemPink
     }
     
-    let nextButton = UIButton().then {
-        $0.setTitle("Next", for: .normal)
+    let combineButton = UIButton().then {
+        $0.setTitle("Combine", for: .normal)
         $0.backgroundColor = .systemPink
     }
-    let previousButton = UIButton().then {
-        $0.setTitle("previous", for: .normal)
+    
+    let rxSwiftButton = UIButton().then {
+        $0.setTitle("RxSwift", for: .normal)
         $0.backgroundColor = .systemPink
     }
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -39,32 +36,24 @@ class MainView: UIView {
         super.init(coder: coder)
     }
     
-    private func setupUI() {
+    private func setupUI () {
         backgroundColor = .systemBackground
-        addSubview(nameLabel)
-        addSubview(ageLabel)
-        addSubview(previousButton)
-        addSubview(nextButton)
+        addSubview(observableButton)
+        addSubview(combineButton)
+        addSubview(rxSwiftButton)
     }
     
     private func setupConstraint() {
-        nameLabel.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.top.equalTo(safeAreaLayoutGuide).offset(50)
+        observableButton.snp.makeConstraints {
+            $0.center.equalToSuperview()
         }
-        
-        ageLabel.snp.makeConstraints {
-            $0.centerX.equalTo(nameLabel)
-            $0.top.equalTo(nameLabel.snp.bottom).offset(10)
-        }
-        
-        previousButton.snp.makeConstraints {
+        combineButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(ageLabel.snp.bottom).offset(50)
+            $0.top.equalTo(observableButton.snp.bottom).offset(20)
         }
-        nextButton.snp.makeConstraints {
+        rxSwiftButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(previousButton.snp.bottom).offset(20)
+            $0.top.equalTo(combineButton.snp.bottom).offset(20)
         }
     }
 

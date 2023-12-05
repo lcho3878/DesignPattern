@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  DesignPattern
 //
 //  Created by t2023-m079 on 12/5/23.
@@ -8,9 +8,8 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    
     private let mainView = MainView()
-    private let mainViewModel: MainViewModel = MainViewModel()
     
     override func loadView() {
         view = mainView
@@ -18,30 +17,26 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        bind()
-        mainView.nextButton.addTarget(self, action: #selector(clickNextButton), for: .touchUpInside)
-        mainView.previousButton.addTarget(self, action: #selector(clickPreviousButton), for: .touchUpInside)
+        setAddTaget()
     }
     
-    private func bind() {
-        mainViewModel.nameText.bind { name in
-            self.mainView.nameLabel.text = name
-        }
-        
-        mainViewModel.ageText.bind { age in
-            self.mainView.ageLabel.text = String(age ?? 0)
-        }
+    private func setAddTaget() {
+        mainView.observableButton.addTarget(self, action: #selector(clickObservableButton), for: .touchUpInside)
+        mainView.combineButton.addTarget(self, action: #selector(clickCombineButton), for: .touchUpInside)
+        mainView.rxSwiftButton.addTarget(self, action: #selector(rxSwiftButton), for: .touchUpInside)
     }
     
-    @objc func clickNextButton (_ sender: UIButton) {
-        mainViewModel.clickNextButton()
+    @objc private func clickObservableButton(_ sender: UIButton) {
+        let obVC = ObservableViewController()
+        self.navigationController?.pushViewController(obVC, animated: true)
     }
     
-    @objc func clickPreviousButton (_ sender: UIButton) {
-        mainViewModel.clickPriviousButton()
+    @objc func clickCombineButton(_ sender: UIButton) {
+        print("Click Combine")
     }
-
+    
+    @objc func rxSwiftButton(_ sender: UIButton) {
+        print("Click RxSwift")
+    }
 
 }
-
