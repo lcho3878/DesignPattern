@@ -9,7 +9,7 @@ import UIKit
 import Then
 import SnapKit
 
-class ObservableView: UIView {
+class MVVMView: UIView {
     
     let nameLabel = UILabel().then {
         $0.text = "Name Label"

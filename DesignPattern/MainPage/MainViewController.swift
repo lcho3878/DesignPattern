@@ -32,7 +32,8 @@ class MainViewController: UIViewController {
     }
     
     @objc func clickCombineButton(_ sender: UIButton) {
-        print("Click Combine")
+        let combineVC = CombineViewController()
+        self.navigationController?.pushViewController(combineVC, animated: true)
     }
     
     @objc func rxSwiftButton(_ sender: UIButton) {

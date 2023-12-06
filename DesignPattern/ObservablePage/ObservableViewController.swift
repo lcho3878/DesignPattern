@@ -9,7 +9,7 @@ import UIKit
 
 class ObservableViewController: UIViewController {
 
-    private let mainView = ObservableView()
+    private let mainView = MVVMView()
     private let mainViewModel: ObservableViewModel = ObservableViewModel()
     
     override func loadView() {
