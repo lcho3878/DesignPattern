@@ -37,7 +37,8 @@ class MainViewController: UIViewController {
     }
     
     @objc func rxSwiftButton(_ sender: UIButton) {
-        print("Click RxSwift")
+        let rxVC = RxSwiftViewController()
+        self.navigationController?.pushViewController(rxVC, animated: true)
     }
 
 }
