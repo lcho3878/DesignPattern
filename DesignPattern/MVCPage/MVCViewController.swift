@@ -8,6 +8,8 @@
 import UIKit
 
 class MVCViewController: UIViewController {
+    
+    private var index: Int = 0
 
     let nameLabel = UILabel().then {
         $0.text = "Name Label"
@@ -31,6 +33,8 @@ class MVCViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupConstraint()
+        setAddTarget()
+        updateView()
     }
     
     private func setupUI() {
@@ -60,6 +64,26 @@ class MVCViewController: UIViewController {
             $0.centerX.equalToSuperview()
             $0.top.equalTo(previousButton.snp.bottom).offset(20)
         }
+    }
+    
+    private func updateView() {
+        nameLabel.text = humanData[index].name
+        ageLabel.text = String(humanData[index].age)
+    }
+    
+    private func setAddTarget() {
+        nextButton.addTarget(self, action: #selector(clickNextButton), for: .touchUpInside)
+        previousButton.addTarget(self, action: #selector(clickPreviousButton), for: .touchUpInside)
+    }
+    
+    @objc func clickNextButton(_ sender: UIButton) {
+        index += index + 1 < humanData.count ? 1 : 0
+        updateView()
+    }
+    
+    @objc func clickPreviousButton(_ sender: UIButton) {
+        index -= index - 1 >= 0 ? 1 : 0
+        updateView()
     }
 
 }
