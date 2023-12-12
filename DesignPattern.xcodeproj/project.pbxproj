@@ -10,6 +10,7 @@
 		154448AE2B20655800982A68 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 154448AD2B20655800982A68 /* RxCocoa */; };
 		154448B22B20655800982A68 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 154448B12B20655800982A68 /* RxSwift */; };
 		15CB15B72B2308B200B5E24B /* RxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CB15B62B2308B200B5E24B /* RxViewModel.swift */; };
+		15CB15B92B284F8200B5E24B /* MVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CB15B82B284F8200B5E24B /* MVCViewController.swift */; };
 		15EAE80B2B1F165B00E7F395 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EAE80A2B1F165B00E7F395 /* MainViewController.swift */; };
 		15EAE8102B1F16FC00E7F395 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EAE80F2B1F16FC00E7F395 /* MainView.swift */; };
 		15EAE8132B20421500E7F395 /* CombineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EAE8122B20421500E7F395 /* CombineViewController.swift */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		15CB15B62B2308B200B5E24B /* RxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxViewModel.swift; sourceTree = "<group>"; };
+		15CB15B82B284F8200B5E24B /* MVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVCViewController.swift; sourceTree = "<group>"; };
 		15EAE80A2B1F165B00E7F395 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		15EAE80F2B1F16FC00E7F395 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		15EAE8122B20421500E7F395 /* CombineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +67,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15CB15BA2B284F8900B5E24B /* MVCPage */ = {
+			isa = PBXGroup;
+			children = (
+				15CB15B82B284F8200B5E24B /* MVCViewController.swift */,
+			);
+			path = MVCPage;
+			sourceTree = "<group>";
+		};
 		15EAE80C2B1F166B00E7F395 /* MainPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +131,7 @@
 				15F79E3E2B1EF529002852B6 /* ObservablePage */,
 				15EAE8112B20416400E7F395 /* CombinePage */,
 				15EAE8162B205B4200E7F395 /* RxSwiftPage */,
+				15CB15BA2B284F8900B5E24B /* MVCPage */,
 				15F79E252B1EECB6002852B6 /* Assets.xcassets */,
 				15F79E272B1EECB6002852B6 /* LaunchScreen.storyboard */,
 				15F79E2A2B1EECB6002852B6 /* Info.plist */,
@@ -225,6 +236,7 @@
 				15CB15B72B2308B200B5E24B /* RxViewModel.swift in Sources */,
 				15EAE8132B20421500E7F395 /* CombineViewController.swift in Sources */,
 				15F79E212B1EECB4002852B6 /* ObservableViewController.swift in Sources */,
+				15CB15B92B284F8200B5E24B /* MVCViewController.swift in Sources */,
 				15F79E352B1EEDD0002852B6 /* MVVMView.swift in Sources */,
 				15F79E422B1EF552002852B6 /* Observable.swift in Sources */,
 				15F79E1D2B1EECB3002852B6 /* AppDelegate.swift in Sources */,

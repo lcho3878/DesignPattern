@@ -25,6 +25,10 @@ class MainView: UIView {
         $0.setTitle("RxSwift", for: .normal)
         $0.backgroundColor = .systemPink
     }
+     let mvcButton = UIButton().then {
+        $0.setTitle("MVC", for: .normal)
+        $0.backgroundColor = .systemPink
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,6 +45,7 @@ class MainView: UIView {
         addSubview(observableButton)
         addSubview(combineButton)
         addSubview(rxSwiftButton)
+        addSubview(mvcButton)
     }
     
     private func setupConstraint() {
@@ -54,6 +59,10 @@ class MainView: UIView {
         rxSwiftButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalTo(combineButton.snp.bottom).offset(20)
+        }
+        mvcButton.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(rxSwiftButton.snp.bottom).offset(20)
         }
     }
 
