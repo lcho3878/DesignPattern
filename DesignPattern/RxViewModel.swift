@@ -37,14 +37,14 @@ final class RxViewModel: ViewModelType {
         
         let nextIndex = input.nextButtonClick
             .map {
-                self.index += self.index + 1 < humanData.count ? 1 : 0
+                self.index = self.index + 1 < humanData.count ? self.index + 1 : 0
                 return self.index
             }
             .asDriver(onErrorJustReturn: 0)
         
         let previousIndex = input.previousButtonClick
             .map {
-                self.index -= self.index - 1 >= 0 ? 1 : 0
+                self.index = self.index - 1 >= 0 ? self.index - 1 : humanData.count - 1
                 return self.index
             }
             .asDriver(onErrorJustReturn: 0)

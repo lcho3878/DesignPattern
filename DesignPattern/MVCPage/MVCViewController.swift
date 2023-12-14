@@ -77,12 +77,12 @@ class MVCViewController: UIViewController {
     }
     
     @objc func clickNextButton(_ sender: UIButton) {
-        index += index + 1 < humanData.count ? 1 : 0
+        index = index + 1 < humanData.count ? index + 1 : 0
         updateView()
     }
     
     @objc func clickPreviousButton(_ sender: UIButton) {
-        index -= index - 1 >= 0 ? 1 : 0
+        index = index - 1 >= 0 ? index - 1 : humanData.count - 1
         updateView()
     }
 
