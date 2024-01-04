@@ -18,13 +18,11 @@ class ObservableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        bind()
-        mainView.nextButton.addTarget(self, action: #selector(clickNextButton), for: .touchUpInside)
-        mainView.previousButton.addTarget(self, action: #selector(clickPreviousButton), for: .touchUpInside)
+        dataBind()
+        setAddtarget()
     }
     
-    private func bind() {
+    private func dataBind() {
         mainViewModel.nameText.bind { name in
             self.mainView.nameLabel.text = name
         }
@@ -32,6 +30,11 @@ class ObservableViewController: UIViewController {
         mainViewModel.ageText.bind { age in
             self.mainView.ageLabel.text = String(age ?? 0)
         }
+    }
+    
+    private func setAddtarget() {
+        mainView.nextButton.addTarget(self, action: #selector(clickNextButton), for: .touchUpInside)
+        mainView.previousButton.addTarget(self, action: #selector(clickPreviousButton), for: .touchUpInside)
     }
     
     @objc func clickNextButton (_ sender: UIButton) {
